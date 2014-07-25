@@ -1,9 +1,14 @@
-# Assignment 2: Caching the Inverse of a Matrix
-antekai  
-Friday, July 25, 2014  
+---
+title: 'Assignment 2: Caching the Inverse of a Matrix'
+author: "antekai"
+date: "Friday, July 25, 2014"
+output:
+  html_document:
+    highlight: textmate
+    keep_md: yes
+---
 To view KNITcachematrix.html in Github
-
-```r
+```{r}
 #add   http://htmlpreview.github.io/?  to the beginning of html file URL
 ```
 or [click here](http://htmlpreview.github.io/?https://github.com/antekai/ProgrammingAssignment2/blob/master/KNITcachematrix.html)
@@ -11,8 +16,7 @@ or [click here](http://htmlpreview.github.io/?https://github.com/antekai/Program
 #
 
 ### cachematrix.R
-
-```r
+```{r}
 ## The code creates a list of functions.
 makeCacheMatrix <- function(x = matrix()) {
   ## set the internal variable to null
@@ -69,43 +73,17 @@ cacheSolve <- function(x, ...) {
 ##Testing cachematrix.R
 
 ### Simple case (2x2 matrix)
-
-```r
+```{r}
 e<-matrix(c(2,2,3,4),nrow=2,ncol=2,byrow=T)
 e
-```
-
-```
-##      [,1] [,2]
-## [1,]    2    2
-## [2,]    3    4
-```
-
-```r
 solve(e)
-```
-
-```
-##      [,1] [,2]
-## [1,]  2.0   -1
-## [2,] -1.5    1
-```
-
-```r
 y<-makeCacheMatrix(e)
 cacheSolve(y)
-```
-
-```
-##      [,1] [,2]
-## [1,]  2.0   -1
-## [2,] -1.5    1
 ```
 Correct!
 
 ### Random large matrix (1000x1000 matrix)
-
-```r
+```{r}
 nrows <- 1000
 ncols <- 1000
 x <- stats::rnorm(nrows*ncols)
@@ -114,10 +92,6 @@ y <- makeCacheMatrix(x)
 solved_with_caching_solve <- cacheSolve(y)
 solved_with_solve <- solve(x)
 identical(solved_with_caching_solve, solved_with_solve)
-```
-
-```
-## [1] TRUE
 ```
 TRUE!
 
